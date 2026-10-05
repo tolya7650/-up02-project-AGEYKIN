@@ -23,7 +23,7 @@ class Product:
     # --- ЗАДАНИЕ ПАРЫ 7: Метод для тренировки слияния веток ---
     def discounted_price(self):
         """Цена со скидкой 25% (упрощённо)."""
-        return self.цена * 0.75
+        return self.цена * 0.80   
 
     # --- ЗАДАНИЕ ПАРЫ 6 (ДЭ): Динамический расчет скидки по БД ---
     def price_with_discount_auto(self, date=None) -> float:
