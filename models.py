@@ -17,19 +17,13 @@ class Product:
         self.постер = poster
 
     def total(self) -> float:
-        """Общая стоимость (цена × количество)."""
+        """Общая стоимость всех доступных билетов данного фильма."""
         return self.цена * self.количество
 
-    # --- ЗАДАНИЕ ПАРЫ 7: Метод для тренировки слияния веток ---
     def discounted_price(self):
-        """Цена со скидкой 25% (упрощённо)."""
- HEAD
-        return self.цена * 0.75   
+        """Цена со скидкой 25% (упрощённо для Пары 7)."""
+        return self.цена * 0.90
 
-        return self.цена * 0.75  
- conflict-test
-
-    # --- ЗАДАНИЕ ПАРЫ 6 (ДЭ): Динамический расчет скидки по БД ---
     def price_with_discount_auto(self, date=None) -> float:
         """Цена со скидкой 25% по алгоритму ДЭ на основе заказов прошлого месяца."""
         if date is None:
@@ -47,3 +41,29 @@ class Product:
             f"{self.цена} руб. × {self.количество} мест = {self.total()} руб. "
             f"({self.indicator()})"
         )
+
+
+class Order:
+    """Класс Заказ (Покупка билетов)."""
+
+    def __init__(self, order_id: int, date: str, client: str, product: Product, quantity: int):
+        """Инициализация заказа."""
+        self.id = order_id
+        self.date = date
+        self.client = client
+        self.product = product      
+        self.quantity = quantity    
+
+    def total(self) -> float:
+        """Стоимость конкретного заказа."""
+        return self.product.цена * self.quantity
+
+    def info(self) -> str:
+        """Возвращает развернутую информацию о заказе."""
+        return (f"Заказ №{self.id} от {self.date}: {self.client} — "
+                f"Фильм '{self.product.название}' × {self.quantity} шт. на сумму {self.total()} руб.")
+
+    # --- ЗДЕСЬ НАЧИНАЕТСЯ ГОТОВЫЙ КОД ИЗ ЗАДАНИЯ 1 ДОМАШНЕЙ РАБОТЫ ---
+    def order_info(self):
+        """Вспомогательный метод вывода краткой информации о заказе по заданию ДЗ."""
+        return f"Заказ №{self.id} от {self.date}: {self.client}"
