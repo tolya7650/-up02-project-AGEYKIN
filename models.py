@@ -20,12 +20,16 @@ class Product:
         """Общая стоимость (цена × количество)."""
         return self.цена * self.количество
 
-    # --- ЗАДАНИЕ 8: Метод автоматического расчёта динамической скидки ---
+    # --- ЗАДАНИЕ ПАРЫ 7: Метод для тренировки слияния веток ---
+    def discounted_price(self):
+        """Цена со скидкой 25% (упрощённо)."""
+        return self.цена * 0.75
+
+    # --- ЗАДАНИЕ ПАРЫ 6 (ДЭ): Динамический расчет скидки по БД ---
     def price_with_discount_auto(self, date=None) -> float:
         """Цена со скидкой 25% по алгоритму ДЭ на основе заказов прошлого месяца."""
         if date is None:
             date = datetime.now()
-        # В функцию discount.py передаем название фильма (self.название) и его базовую цену (self.цена)
         return calculate_price_with_discount(self.название, self.цена, date)
 
     def indicator(self) -> str:
