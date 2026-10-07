@@ -1,1 +1,8 @@
-DB_PATH = "databases/db_variant_3.db"
+"""Конфигурационный файл проекта УП.02."""
+
+APP_TITLE = "Каталог фильмов — Вариант 3"
+FONT_FAMILY = "Arial"
+COLOR_HIGHLIGHT = "#ff8080"  # Нежно-красный цвет для подсветки малого количества мест
+
+# Путь к вашей базе данных SQLite
+DB_PATH = "db_variant_3.db"
