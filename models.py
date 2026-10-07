@@ -16,6 +16,10 @@ class Product:
         self.количество = quantity
         self.постер = poster
 
+    def is_available(self):
+        """Товар доступен для заказа?"""
+        return self.количество > 0
+
     def total(self) -> float:
         """Общая стоимость всех доступных билетов данного фильма."""
         return self.цена * self.количество
